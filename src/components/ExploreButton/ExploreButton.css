@@ -1,0 +1,66 @@
+.explore-button {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 14px;
+  overflow: hidden;
+  isolation: isolate;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: linear-gradient(120deg, #7c3aed 0%, #8b5cf6 40%, #0ea5e9 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 10px 30px -8px var(--violet-glow),
+    0 0 40px -10px var(--cyan-glow);
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    filter 0.35s var(--ease-out);
+}
+
+.explore-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+    0 14px 40px -8px var(--violet-glow),
+    0 0 60px -6px var(--cyan-glow);
+}
+
+.explore-button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.explore-button__shine {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: explore-shine 4.5s ease-in-out infinite 2.5s;
+}
+
+.explore-button__icon {
+  transition: transform 0.35s var(--ease-out);
+}
+
+.explore-button:hover .explore-button__icon {
+  transform: translateX(3px);
+}
+
+@keyframes explore-shine {
+  0%,
+  65% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}

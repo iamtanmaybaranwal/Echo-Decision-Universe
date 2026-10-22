@@ -1,0 +1,82 @@
+.tree {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 70% at 20% 50%, rgba(124, 58, 237, 0.1), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(8, 145, 178, 0.08), transparent 70%),
+    rgba(8, 6, 16, 0.45);
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.tree__svg {
+  display: block;
+  overflow: visible;
+}
+
+.tree-edge__line {
+  fill: none;
+  stroke: url(#edge-gradient);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.55;
+  transition:
+    opacity 0.45s var(--ease-out),
+    stroke-width 0.45s var(--ease-out);
+}
+
+.tree-edge[data-depth='1'] .tree-edge__line {
+  stroke-width: 2.2;
+}
+
+.tree-edge--active .tree-edge__line,
+.tree-edge--related .tree-edge__line {
+  opacity: 1;
+}
+
+.tree-edge--active .tree-edge__line {
+  stroke-width: 3;
+}
+
+.tree-edge--dimmed .tree-edge__line {
+  opacity: 0.16;
+}
+
+/* Energy travelling along highlighted edges. */
+.tree-edge__flow {
+  fill: none;
+  stroke: #e0f7ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 2 22;
+  opacity: 0;
+  pointer-events: none;
+  animation: edge-flow 1.6s linear infinite;
+  transition: opacity 0.45s var(--ease-out);
+}
+
+.tree-edge__flow--active {
+  opacity: 0.95;
+}
+
+.tree-edge__flow--related {
+  opacity: 0.45;
+  animation-duration: 2.6s;
+}
+
+@keyframes edge-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-edge__flow {
+    animation: none;
+  }
+}

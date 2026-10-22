@@ -1,0 +1,61 @@
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 110%, #0d0820 0%, transparent 60%),
+    var(--bg);
+}
+
+.starfield__svg {
+  position: absolute;
+  inset: -24px;
+  width: calc(100% + 48px);
+  height: calc(100% + 48px);
+}
+
+.starfield__star--bright {
+  filter: drop-shadow(0 0 3px rgba(196, 181, 253, 0.9));
+}
+
+.starfield__nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: nebula-drift 26s ease-in-out infinite alternate;
+}
+
+.starfield__nebula--violet {
+  width: 60vmax;
+  height: 60vmax;
+  left: -18vmax;
+  top: -22vmax;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.35) 0%, transparent 65%);
+}
+
+.starfield__nebula--cyan {
+  width: 55vmax;
+  height: 55vmax;
+  right: -20vmax;
+  bottom: -24vmax;
+  background: radial-gradient(circle, rgba(8, 145, 178, 0.3) 0%, transparent 65%);
+  animation-delay: -13s;
+}
+
+.starfield__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(3, 2, 7, 0.85) 100%);
+}
+
+@keyframes nebula-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4vmax, 3vmax, 0) scale(1.08);
+  }
+}

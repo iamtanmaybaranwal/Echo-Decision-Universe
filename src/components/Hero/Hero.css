@@ -1,0 +1,67 @@
+.hero {
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyan-soft);
+}
+
+.hero__eyebrow-line {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan-soft));
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(44px, 8.4vw, 112px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.hero__word-mask {
+  display: inline-block;
+  overflow: hidden;
+  /* Room for descenders + italic overhang while still clipping the rise-in. */
+  padding: 0.04em 0.06em 0.12em;
+  margin: 0 0.04em -0.12em;
+  vertical-align: top;
+}
+
+.hero__word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.hero__word--accent {
+  font-style: italic;
+  padding-right: 0.04em;
+  background: linear-gradient(100deg, var(--violet-soft) 0%, #e9d5ff 45%, var(--cyan-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__subtitle {
+  max-width: 560px;
+  margin: 26px auto 0;
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: var(--text-muted);
+  text-wrap: pretty;
+  text-shadow:
+    0 0 18px var(--bg),
+    0 0 6px var(--bg);
+}

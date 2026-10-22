@@ -1,0 +1,25 @@
+.universe {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.34;
+  transform-origin: 50% 100%;
+  -webkit-mask-image: radial-gradient(ellipse 75% 90% at 50% 75%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 75% 90% at 50% 75%, #000 30%, transparent 80%);
+}
+
+.universe__svg {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(1100px, 140vw);
+  height: 92%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
+.universe__branch {
+  fill: none;
+  stroke-linecap: round;
+}
